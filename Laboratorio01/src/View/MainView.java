@@ -7,14 +7,14 @@ public class MainView {
 
     private DoctorView doctorView;
     private PacienteView pacienteView;
-    // El otro integrante agregará: private CitaView citaView;
+    private AppointmentView appointmentView;
 
     private Scanner scanner;
 
     public MainView() {
         doctorView = new DoctorView();
         pacienteView = new PacienteView();
-        // El otro integrante agregará: citaView = new CitaView();
+        appointmentView = new AppointmentView();
 
         scanner = new Scanner(System.in);
     }
@@ -52,11 +52,7 @@ public class MainView {
                     pacienteView.mostrarMenu();
                     break;
                 case 3:
-                    // El otro integrante implementará esto
-                    System.out.println("Módulo de Citas aún no implementado.");
-                    System.out.println("\nPresione Enter para continuar pls");
-                    scanner.nextLine();
-                    // citaView.mostrarMenu();
+                    appointmentView.mostrarMenu();
                     break;
                 case 4:
                     mundoSalvaVidas();

@@ -1,7 +1,10 @@
 package Util;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.Period;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -78,5 +81,33 @@ public class Validador {
     // Verificar que el paciente no exista ya (por DUI)
     public static boolean existePacientePorDUI(String dui) {
         return Datos.buscarPacientePorDUI(dui) != null;
+    }
+
+    //Valida que la hora siga el formato
+    public static LocalTime parseHora(String horaStr) {
+            if (horaStr == null || horaStr.trim().isEmpty()) {
+                return null; // se asignará automáticamente más adelante
+            }
+
+            try {
+                return LocalTime.parse(horaStr.trim(), DateTimeFormatter.ofPattern("HH:mm"));
+            } catch (DateTimeParseException e) {
+                System.out.println("Formato de hora inválido. Usa el formato HH:mm (ej. 13:00)");
+                return null;
+            }
+    }
+
+    //Valida que la fecha siga el formato
+    public static LocalDate parseFecha(String fechaStr) {
+        if (fechaStr == null || fechaStr.trim().isEmpty()) {
+            return null; // Si no se ingresa una fecha, retorna null
+        }
+
+        try {
+            return LocalDate.parse(fechaStr.trim(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        } catch (DateTimeParseException e) {
+            System.out.println("Formato de fecha inválido. Usa el formato dd/MM/yyyy (ej. 04/04/2025)");
+            return null;
+        }
     }
 }

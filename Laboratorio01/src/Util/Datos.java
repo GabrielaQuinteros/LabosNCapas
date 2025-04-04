@@ -1,8 +1,10 @@
 package Util;
 
+import Model.Entity.Appointment;
 import Model.Entity.Doctor;
 import Model.Entity.Paciente;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +13,7 @@ public class Datos {
     // Listas para almacenar los datos
     private static List<Doctor> doctores = new ArrayList<>();
     private static List<Paciente> pacientes = new ArrayList<>();
-
-    // Para las citas lo hará la OSE
-    // private static List<Cita> citas = new ArrayList<>();
+    private static List<Appointment> citas = new ArrayList<>();
 
     // Cargar algunos datos de ejemplo
     static {
@@ -54,6 +54,28 @@ public class Datos {
 
         pacientes.add(jinx);
         pacientes.add(ekko);
+
+        //Agregar algunas citas de ejemplo
+        Appointment Jayce = new Appointment(
+                "Jayce",
+                "Talis",
+                "58256485-4",
+                "Farmacologia",
+                "ZNH-4C5-MD-D6",
+                LocalDate.of(2025, 4, 4),
+                LocalTime.of(11,25),
+                true);
+        Appointment Victor = new Appointment(
+                "Victor",
+                "Tendercrisp",
+                "45256485-4",
+                "Cirugía",
+                "ZNH-1A2-MD-B3",
+                LocalDate.of(2025, 4, 4),
+                LocalTime.of(2,0),
+                true);
+        citas.add(Jayce);
+        citas.add(Victor);
     }
 
     // Métodos para doctores
@@ -100,4 +122,10 @@ public class Datos {
         }
         return null;
     }
+
+    //Metodos para citas
+    public static List<Appointment> obtenerCitas() {
+        return citas;
+    }
+
 }
