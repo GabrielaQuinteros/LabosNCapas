@@ -3,5 +3,4 @@ Integrantes:
 
 Gabriela Sofia Quinteros Ramirez 00060422
 
-
-Graciela Maria Osegueda Hernandez 00153822
+Oscar Ernesto Menjivar Ayala 00068422
