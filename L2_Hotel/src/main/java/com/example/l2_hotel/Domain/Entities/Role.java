@@ -16,8 +16,8 @@ public class Role {
     private UUID idRole;
 
     @Column(nullable = false, length = 50)
-    private String name;
+    private String title;
 
-    @Column(length = 255)
-    private String description;
+    @Column(nullable = false, length = 100)
+    private String department; 
 }
